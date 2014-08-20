@@ -1,0 +1,20 @@
+.js-tooltipamo {
+  cursor: help; }
+
+.tooltipamo {
+  width: 150px;
+  padding: 10px;
+  background-color: #343536;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in 0s;
+  -ms-transition: opacity 0.2s ease-in 0s;
+  -o-transition: opacity 0.2s ease-in 0s;
+  transition: opacity 0.2s ease-in 0s; }
+
+.is-opaque {
+  opacity: 1; }
