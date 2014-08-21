@@ -74,16 +74,16 @@
       </div>
       <div class="pure-u-1">
         <ul>
-          <li class="js-tooltipamo" data-tip="I am a tooltip on an icon&hellip;I am actual on its container"><i class="fa fa-car"></i></li>
-          <li class="js-tooltipamo" data-tip="I am a tooltip on an icon&hellip;I am actual on its container"><i class="fa fa-database"></i></li>
-          <li class="js-tooltipamo" data-tip="I am a tooltip on an icon&hellip;I am actual on its container"><i class="fa fa-life-ring"></i></li>
-          <li><a href="#" class="js-tooltipamo" data-tip="I am a tooltip on a link">I am a link 1</a></li>
-          <li><a href="#" class="js-tooltipamo" data-tip="I am a tooltip on a link">I am a link 2</a></li>
-          <li><a href="#" class="js-tooltipamo" data-tip="I am a tooltip on a link">I am a link 3</a></li>
+          <li data-tip="I am a tooltip on an icon&hellip;I am actual on its container"><i class="fa fa-car"></i></li>
+          <li data-tip="I am a tooltip on an icon&hellip;I am actual on its container"><i class="fa fa-database"></i></li>
+          <li data-tip="I am a tooltip on an icon&hellip;I am actual on its container"><i class="fa fa-life-ring"></i></li>
+          <li><a href="#" data-tip="I am a tooltip on a link">I am a link 1</a></li>
+          <li><a href="#" data-tip="I am a tooltip on a link">I am a link 2</a></li>
+          <li><a href="#" data-tip="I am a tooltip on a link">I am a link 3</a></li>
         </ul>
       </div>
       <div class="pure-u-1">
-        <img src="http://placehold.it/960x480" alt="" class="js-tooltipamo" data-tip="I am picture with a data-tip">
+        <img src="http://placehold.it/960x480" alt="" data-tip="I am picture with a data-tip">
       </div>
     </div>
   </div>
@@ -92,7 +92,8 @@
   <script src="tooltipamo.js"></script>
   <script>
     $(document).ready(function () {
-      tooltipamo.init();
+      // pass { classy: false } to init() to use tooltipamo without .js-tooltipamo, only data-tip needed
+      tooltipamo.init(); 
     });
   </script>
 

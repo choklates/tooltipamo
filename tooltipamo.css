@@ -1,9 +1,9 @@
-.js-tooltipamo {
+[data-tip] {
   cursor: help; }
 
 .tooltipamo {
   width: 200px;
-  padding: 10px;
+  padding: 5px 10px;
   background-color: #343536;
   color: white;
   position: absolute;
@@ -16,10 +16,7 @@
   -ms-transition: opacity 0.2s ease-in 0s;
   -o-transition: opacity 0.2s ease-in 0s;
   transition: opacity 0.2s ease-in 0s; }
-  .tooltipamo p {
-    margin: 0;
-    padding: 0; }
 
 .is-active {
-  opacity: 1;
-  z-index: 1; }
+  z-index: 1;
+  opacity: 1; }
