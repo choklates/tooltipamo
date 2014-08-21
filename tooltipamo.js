@@ -1,5 +1,5 @@
 var tooltipamo = (function ($) {
-  var $tooltipContainers, $tooltip;
+  var $tooltip, $tooltipHosts, $win;
 
   function init() {
     _createTooltip();
@@ -8,15 +8,13 @@ var tooltipamo = (function ($) {
   }
 
   function _setupElements() {
-    $tooltipContainers = $('.js-tooltipamo');
     $tooltip = $('.tooltipamo');
+    $tooltipHosts = $('.js-tooltipamo');
+    $win = $(window);
   }
 
   function _setupEventHandlers() {
-    var $win,
-      text, offset, win, tooltip;
-
-    $win = $(window);
+    var text, offset, win, tooltip;
 
     offset = {};
     offset.x = 15;
@@ -27,7 +25,7 @@ var tooltipamo = (function ($) {
     tooltip = {};
     tooltip.width = $tooltip.outerWidth(true);
 
-    $tooltipContainers.on('mouseenter', function () {
+    $tooltipHosts.on('mouseenter', function () {
       text = $(this).data('tip');
       tooltip.height = $tooltip.outerHeight(true);
       $tooltip.addClass('is-active').find('p').text(text);
@@ -35,7 +33,7 @@ var tooltipamo = (function ($) {
       $tooltip.removeClass('is-active');
     });
 
-    $tooltipContainers.add('.tooltipamo').on('mousemove', function (e) {
+    $tooltipHosts.add('.tooltipamo').on('mousemove', function (e) {
       tooltip.top = e.pageY + offset.y;
       tooltip.left = e.pageX + offset.x;
 
