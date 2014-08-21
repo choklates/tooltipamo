@@ -2,19 +2,23 @@
   cursor: help; }
 
 .tooltipamo {
-  width: 150px;
+  width: 200px;
   padding: 10px;
   background-color: #343536;
   color: white;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 0;
   opacity: 0;
   -webkit-transition: opacity 0.2s ease-in 0s;
   -ms-transition: opacity 0.2s ease-in 0s;
   -o-transition: opacity 0.2s ease-in 0s;
   transition: opacity 0.2s ease-in 0s; }
+  .tooltipamo p {
+    margin: 0;
+    padding: 0; }
 
-.is-opaque {
-  opacity: 1; }
+.is-active {
+  opacity: 1;
+  z-index: 1; }

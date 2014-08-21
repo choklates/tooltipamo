@@ -13,32 +13,56 @@ var tooltipamo = (function ($) {
   }
 
   function _setupEventHandlers() {
-    var text, offset;
+    var $win,
+      text, offset, win, tooltip;
 
-    offset = {
-      x: 15,
-      y: 5
-    };
+    $win = $(window);
+
+    offset = {};
+    offset.x = 15;
+    offset.y = 5;
+
+    win = {};
+
+    tooltip = {};
+    tooltip.width = $tooltip.outerWidth(true);
 
     $tooltipContainers.on('mouseenter', function () {
       text = $(this).data('tip');
-      console.log('entering');
-      $tooltip.text(text).addClass('is-opaque');
-    }).on('mousemove', function (e) {
-      console.log('x: ' + e.pageX + ' y: ' + e.pageY)
-      $tooltip.css({
-        top: e.pageY + offset.y,
-        left: e.pageX + offset.x
-      });
-      console.log('moving');
+      tooltip.height = $tooltip.outerHeight(true);
+      $tooltip.addClass('is-active').find('p').text(text);
     }).on('mouseleave', function () {
-      console.log('leaving');
-      $tooltip.removeClass('is-opaque');
+      $tooltip.removeClass('is-active');
+    });
+
+    $tooltipContainers.add('.tooltipamo').on('mousemove', function (e) {
+      tooltip.top = e.pageY + offset.y;
+      tooltip.left = e.pageX + offset.x;
+
+      if (tooltip.left + tooltip.width > win.width) {
+        tooltip.left -= (tooltip.width + offset.x * 2);
+      }
+      if (tooltip.top + tooltip.height > win.height + win.top) {
+        tooltip.top -= (tooltip.height + offset.y * 2);
+      }
+
+      $tooltip.css({
+        top: tooltip.top,
+        left: tooltip.left
+      });
+    });
+
+    $win.on('load resize', function () {
+      win.width = $win.width();
+      win.height = $win.height();
+      win.top = 0;
+    }).on('scroll', function () {
+      win.top = $win.scrollTop();
     });
   }
 
   function _createTooltip() {
-    $('body').append('<div class="tooltipamo"></div>');
+    $('body').append('<div class="tooltipamo"><p></p></div>');
   }
 
   return {
